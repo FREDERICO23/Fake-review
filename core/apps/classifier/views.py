@@ -1,10 +1,8 @@
-import pandas as pd
 from django.shortcuts import render
 from django.http import HttpResponse
 import pickle
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.snowball import SnowballStemmer
-import re
 import os
 from django.conf import settings
 

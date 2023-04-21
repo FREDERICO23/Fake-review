@@ -31,7 +31,7 @@
     <div class="container">
         <div class="card center spacer">
             <h1 class="title text-center">Sign Up</h1>
-            <div class="social-login">
+            {% comment %} <div class="social-login">
                 <button class="social-btn">
                     <img class="icon" src="{% static "icons/gmail.svg" %}" alt="gmail icon">
                     Gmail
@@ -40,7 +40,7 @@
                     <img class="icon" src="{% static "icons/facebook.svg" %}" alt="facebook icon">
                     Facebook
                 </button>
-            </div>                                                                                                                                              
+            </div>                                                                                                                                               {% endcomment %}
             <div class="text-center line form-divider">or</div>
             <form method="POST" class="login-form spacer" id="signup-form" action="{% url 'register' %}">
                 {% csrf_token %}
