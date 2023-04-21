@@ -1,0 +1,45 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.card {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 30px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+}
+form {
+    margin-top: 20px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    background-color: #2ECC71;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+}
+.result {
+    background-color: white;
+    color: black;
+    margin-top: 20px;
+    font-weight: bold;
+}

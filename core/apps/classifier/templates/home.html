@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Checker</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Review Checker</h1>
+        <p>Click the button below to check a review:</p>
+        <a href="{% url 'review' %}" class="green-button">Check Review</a>
+        <div class="button-group">
+            <a href="{% url 'register' %}" ><button class="black-button">Sign Up</button></a>
+            <a href="{% url 'login' %}"><button class="white-button" >Login</button></a>
+        </div>
+    </div>
+</body>
+</html>

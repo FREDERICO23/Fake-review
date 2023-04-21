@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Checker</title>
+    <link rel="stylesheet" href="{% static 'css/predict.css' %}">  
+</head>
+<body>
+    <div class="card">
+        <h1>Review Checker</h1>
+        <p>Enter the review below:</p>
+        <form action="{% url 'predict' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="review" placeholder="Enter review..." required>
+            <br>
+            <input type="submit" value="Check">
+        </form>
+        {% if prediction %}
+        <p class="result">{{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
