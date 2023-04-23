@@ -40,8 +40,8 @@
                     <img class="icon" src="{% static "icons/facebook.svg" %}" alt="facebook icon">
                     Facebook
                 </button>
-            </div>                                                                                                                                               {% endcomment %}
-            <div class="text-center line form-divider">or</div>
+            </div>                                                                                                                                              
+            <div class="text-center line form-divider">or</div> {% endcomment %}
             <form method="POST" class="login-form spacer" id="signup-form" action="{% url 'register' %}">
                 {% csrf_token %}
                 
@@ -74,9 +74,9 @@
     </div>
 
     <div class="redirect">
-        Already have an account?&nbsp;<a href="/accounts/login" class="link">Login</a>
+        Already have an account?&nbsp;<a href="{% url 'login' %}" class="link">Login</a>
         <br><br>
-        <a href="/accounts/forgot-password" class="link">Forgot password?</a>
+        <a href="#" class="link">Forgot password?</a>
     </div>
 
 

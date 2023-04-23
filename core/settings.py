@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      "debug_toolbar",
     'core.apps.classifier',
-    'core.apps.accounts',
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'classifier.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

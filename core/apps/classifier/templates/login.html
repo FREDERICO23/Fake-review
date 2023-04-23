@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="card center spacer">
-            <h1 class="title text-center">Login With</h1>
+            <h1 class="title text-center">Login</h1>
             {% comment %} <div class="social-login">
                 <button class="social-btn">
                     <img class="icon" src="{% static "icons/gmail.svg"%}" alt="gmail icon">
@@ -23,8 +23,8 @@
                     <img class="icon" src="{% static "icons/facebook.svg"%}" alt="gmail icon">
                     Facebook
                 </button>
-            </div> {% endcomment %}
-            <div class="text-center line form-divider">or</div>
+            </div>
+            <div class="text-center line form-divider">or</div> {% endcomment %}
             <form method="POST" class="login-form spacer" id="signup-form" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="input-group">
@@ -46,11 +46,10 @@
     </div>
 
     <div class="redirect">
-        Don't have an account?&nbsp;<a href="/accounts/register" class="link">Signup</a>
+        Don't have an account?&nbsp;<a href="{% url 'register' %}" class="link">Sign Up</a>
         <br><br>
-        <a href="/accounts/forgot-password" class="link">Forgot password?</a>
+        <a href="#" class="link">Forgot password?</a>
     </div>
-
 
 </body>
 </html>
