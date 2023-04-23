@@ -9,6 +9,8 @@ urlpatterns = [
     path('predict/', views.predict, name='predict'),
     path('register/',views.register, name="register"),
     path('login/', views.login_request, name='login'),
-    path('logout/', views.logout_request, name="logout"),     
+    path('logout/', views.logout_request, name="logout"),  
+    path('generate_report/', views.generate_report, name='generate_report'),
+   
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

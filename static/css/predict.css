@@ -43,3 +43,18 @@ input[type="submit"] {
     margin-top: 20px;
     font-weight: bold;
 }
+a.green-button, button.black-button, button.white-button {
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+a.green-button:hover, button.black-button:hover, button.white-button:hover {
+    background-color: #27ae60;
+}

@@ -9,6 +9,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout, authenticate
 from django.contrib import messages
 from .forms import SignUpForm, UserLoginForm
+from .models import ClassifiedReviews
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -73,15 +77,36 @@ def review(request):
 def predict(request):
     """READ url from the website form and predict"""
     if request.method == 'POST':
-        to_predict_list = request.POST['review']
+        review = request.POST['review']
         
-        review_url=[to_predict_list] 
+        review=[review] 
 
-        url = cv.transform(review_url).toarray() # convert text to bag of words model (Vector)
-        phish = rfc.predict(url) # predict Whether the url is good or bad
-        phish = le.inverse_transform(phish) # find the url corresponding with the predicted value
-        val = phish[0]
-        
+        review_array = cv.transform(review).toarray() # convert text to bag of words model (Vector)
+        pred = rfc.predict(review_array) # predict Whether the url is good or bad
+        pred = le.inverse_transform(pred) # find the url corresponding with the predicted value
+        val = pred[0]
+        # Save the review and its classification to the database
+        ClassifiedReviews.objects.create(review=review, result=val, date=timezone.now())
+
         return render(request, 'predict.html', {'prediction': 'The review is {}'.format(val)})
     else:
         return HttpResponse("Invalid request method")
+    
+def generate_report(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    reviews = ClassifiedReviews.objects.all()
+
+    # Generate the PDF report
+    template_path = 'report.html'
+    context = {'reviews': reviews}
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    template = get_template(template_path)
+    html = template.render(context)
+    pisa_status = pisa.CreatePDF(html, dest=response)
+    if pisa_status.err:
+        return HttpResponse('An error occurred while generating the PDF.')
+    return response
+

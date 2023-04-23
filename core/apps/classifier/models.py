@@ -24,5 +24,5 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class ClassifiedReviews(models.Model):
     review = models.CharField(max_length=500)
-    results = models.CharField(max_length=50)
+    result = models.CharField(max_length=50)
     date = models.DateTimeField(default=timezone.now)
